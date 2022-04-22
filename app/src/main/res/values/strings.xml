@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SpaghettiChef</string>
+
+    <string name="add">추가</string>
+
+    <string name="main_todo_title">오늘 할일</string>
+    <string name="main_todo_input_hint">새로운 일은 무엇인가요?</string>
 </resources>
