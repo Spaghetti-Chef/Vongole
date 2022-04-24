@@ -53,7 +53,7 @@
             android:padding="@dimen/spacingBase"
             android:paddingVertical="@dimen/spacingBase"
             android:text="@string/add"
-            android:onClick="addTodoItem"
+            android:onClick="onClick"
             android:textColor="@color/blue_500"
             android:textSize="@dimen/typographyBase"
             app:layout_constraintBottom_toBottomOf="@id/todo_input"

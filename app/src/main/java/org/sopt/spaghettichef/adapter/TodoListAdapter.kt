@@ -12,7 +12,7 @@ class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemT
     private lateinit var touchListener: OnItemTouchListener
 
     interface OnItemTouchListener {
-        fun onItemSwipe(todoItem: TodoItem)
+        fun onItemSwipe(todoItem: TodoItem, position: Int)
     }
 
     fun setOnItemTouchListener(listener: OnItemTouchListener) {
@@ -45,9 +45,9 @@ class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemT
         notifyItemInserted(0)
     }
 
-    fun removeData(item: TodoItem) {
-        dataSet.remove(item)
-        notifyItemRemoved(dataSet.indexOf(item))
+    fun removeData(position: Int) {
+        dataSet.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     fun setData(items: List<TodoItem>) {
@@ -57,7 +57,7 @@ class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemT
     }
 
     override fun onItemSwipe(position: Int) {
-        touchListener.onItemSwipe(dataSet[position])
+        touchListener.onItemSwipe(dataSet[position], position)
     }
 
     companion object {
