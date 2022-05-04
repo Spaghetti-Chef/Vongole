@@ -12,9 +12,9 @@ import org.sopt.spaghettichef.presenter.TodoContract
 import org.sopt.spaghettichef.presenter.TodoPresenter
 import org.sopt.spaghettichef.util.ItemTouchHelperCallback
 
-class MainActivity : AppCompatActivity(), TodoListAdapter.OnItemTouchListener, TodoContract.View {
+class MainActivity : AppCompatActivity(), TodoContract.View {
     private lateinit var binding: ActivityMainBinding
-    private val adapter = TodoListAdapter()
+    private val adapter = TodoListAdapter(::onItemSwipe)
     private lateinit var presenter: TodoPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), TodoListAdapter.OnItemTouchListener, T
 
     private fun initView() {
         adapter.apply {
-            setOnItemTouchListener(this@MainActivity)
             ItemTouchHelper(ItemTouchHelperCallback(this)).attachToRecyclerView(binding.todoList)
         }
 
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity(), TodoListAdapter.OnItemTouchListener, T
         presenter.addTodoItem(binding.todoInput.text.toString())
     }
 
-    override fun onItemSwipe(todoItem: TodoItem, position: Int) {
+    private fun onItemSwipe(todoItem: TodoItem, position: Int) {
         presenter.deleteTodoItem(todoItem, position)
     }
 
