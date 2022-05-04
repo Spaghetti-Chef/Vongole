@@ -14,7 +14,7 @@ class TodoListAdapter(private val touchListener: (TodoItem, Int) -> Unit) :
     inner class TodoViewHolder(private val binding: ItemTodoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: TodoItem) {
-            binding.description.text = item.description
+            binding.todoData = item
         }
     }
 
