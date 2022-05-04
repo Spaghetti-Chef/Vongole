@@ -7,22 +7,14 @@ import org.sopt.spaghettichef.databinding.ItemTodoBinding
 import org.sopt.spaghettichef.model.TodoItem
 import org.sopt.spaghettichef.util.ItemTouchHelperListener
 
-class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemTouchHelperListener {
+class TodoListAdapter(private val touchListener: (TodoItem, Int) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemTouchHelperListener {
     private val dataSet: MutableList<TodoItem> = mutableListOf()
-    private lateinit var touchListener: OnItemTouchListener
-
-    interface OnItemTouchListener {
-        fun onItemSwipe(todoItem: TodoItem)
-    }
-
-    fun setOnItemTouchListener(listener: OnItemTouchListener) {
-        this.touchListener = listener
-    }
 
     inner class TodoViewHolder(private val binding: ItemTodoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: TodoItem) {
-            binding.description.text = item.description
+            binding.todoData = item
         }
     }
 
@@ -45,9 +37,9 @@ class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemT
         notifyItemInserted(0)
     }
 
-    fun removeData(item: TodoItem) {
-        dataSet.remove(item)
-        notifyItemRemoved(dataSet.indexOf(item))
+    fun removeData(position: Int) {
+        dataSet.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     fun setData(items: List<TodoItem>) {
@@ -57,7 +49,7 @@ class TodoListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemT
     }
 
     override fun onItemSwipe(position: Int) {
-        touchListener.onItemSwipe(dataSet[position])
+        touchListener(dataSet[position], position)
     }
 
     companion object {

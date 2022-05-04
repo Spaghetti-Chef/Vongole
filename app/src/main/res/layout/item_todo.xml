@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="todoData"
+            type="org.sopt.spaghettichef.model.TodoItem" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +20,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nanum_square_r"
             android:paddingVertical="@dimen/spacingBase"
-            android:text="@string/main_todo_title"
+            android:text="@{todoData.description}"
             android:textColor="@color/gray_700"
             android:textSize="@dimen/typographyBase"
             app:layout_constraintEnd_toEndOf="parent"
