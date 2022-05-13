@@ -1,4 +1,4 @@
-package org.sopt.spaghettichef.presenter
+package org.sopt.spaghettichef.presenter.friend
 
 import android.content.Context
 import androidx.lifecycle.LiveData

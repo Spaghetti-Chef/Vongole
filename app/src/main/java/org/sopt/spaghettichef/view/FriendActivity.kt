@@ -7,10 +7,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import org.sopt.spaghettichef.R
+import org.sopt.spaghettichef.adapter.FriendListAdapter
 import org.sopt.spaghettichef.databinding.ActivityFriendBinding
 import org.sopt.spaghettichef.model.db.friend.FriendInfo
-import org.sopt.spaghettichef.presenter.FriendContract
-import org.sopt.spaghettichef.presenter.FriendPresenter
+import org.sopt.spaghettichef.presenter.friend.FriendContract
+import org.sopt.spaghettichef.presenter.friend.FriendPresenter
 
 class FriendActivity : AppCompatActivity(), FriendContract.View {
     private lateinit var binding: ActivityFriendBinding

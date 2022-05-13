@@ -1,4 +1,4 @@
-package org.sopt.spaghettichef.view
+package org.sopt.spaghettichef.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
