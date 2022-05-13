@@ -36,4 +36,26 @@
         <item name="android:fontFamily">@font/nanum_square_r</item>
     </style>
 
+    <style name="Widget.Button.Style" parent="">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingVertical">@dimen/spacingBase</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Widget.RoundButton.Style" parent="Widget.Button.Style">
+        <item name="android:background">@color/gray_700</item>
+        <item name="android:textAppearance">@style/Widget.RoundButton.TextAppearance</item>
+    </style>
+
+    <style name="Widget.Navigation.Button.Style" parent="Widget.Button.Style">
+        <item name="android:padding">@dimen/spacingBase</item>
+    </style>
+
+    <style name="Widget.RoundButton.TextAppearance" parent="">
+        <item name="android:textSize">@dimen/spacingBase</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/nanum_square_b</item>
+    </style>
+
 </resources>
