@@ -1,6 +1,7 @@
 package org.sopt.spaghettichef.presenter.friend
 
 import android.content.Context
+import android.util.Patterns
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
@@ -25,7 +26,17 @@ class FriendPresenter(
         db = FriendDatabase.getInstance(context)
     }
 
+    override fun checkEmailFormat(email: String): Boolean {
+        val emailPattern = Patterns.EMAIL_ADDRESS
+        return emailPattern.matcher(email).matches()
+    }
+
     override fun addFriend(name: String, email: String) {
+        if (!checkEmailFormat(email)) {
+            view.showEmailFormatToast()
+            return
+        }
+
         val trimmedName = name.trim()
         val trimmedEmail = email.trim()
         if (trimmedName.isBlank() || trimmedEmail.isBlank()) return
@@ -51,6 +62,11 @@ class FriendPresenter(
     }
 
     override fun updateFriend(name: String, email: String, id: Int) {
+        if (!checkEmailFormat(email)) {
+            view.showEmailFormatToast()
+            return
+        }
+
         lifecycleScope.launch(Dispatchers.IO) {
             db!!.friendDAO().updateFriend(FriendInfo(name, email, id))
         }

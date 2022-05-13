@@ -1,6 +1,7 @@
 package org.sopt.spaghettichef.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
@@ -76,6 +77,10 @@ class FriendActivity : AppCompatActivity(), FriendContract.View {
 
     override fun clearSelectedFriend() {
         selectedFriend.value = null
+    }
+
+    override fun showEmailFormatToast() {
+        Toast.makeText(this, getString(R.string.email_format_toast_text), Toast.LENGTH_SHORT).show()
     }
 
     private fun onItemClick(friend: FriendInfo) {
