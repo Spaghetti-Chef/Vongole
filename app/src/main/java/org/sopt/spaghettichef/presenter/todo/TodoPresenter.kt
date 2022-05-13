@@ -1,11 +1,11 @@
-package org.sopt.spaghettichef.presenter
+package org.sopt.spaghettichef.presenter.todo
 
 import android.content.Context
 import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.sopt.spaghettichef.model.TodoDatabase
-import org.sopt.spaghettichef.model.TodoItem
+import org.sopt.spaghettichef.model.db.todo.TodoDatabase
+import org.sopt.spaghettichef.model.db.todo.TodoItem
 
 class TodoPresenter(
     private val view: TodoContract.View,

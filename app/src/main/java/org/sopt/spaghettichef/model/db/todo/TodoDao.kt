@@ -1,4 +1,4 @@
-package org.sopt.spaghettichef.model
+package org.sopt.spaghettichef.model.db.todo
 
 import androidx.room.*
 
@@ -13,7 +13,6 @@ interface TodoDao {
     @Delete
     fun delete(todo: TodoItem)
 
-    @Query("SELECT * FROM TodoItem ORDER BY id DESC") // 테이블의 모든 값을 가져와라
+    @Query("SELECT * FROM TodoItem ORDER BY id DESC")
     fun getAll(): List<TodoItem>
-
 }

@@ -1,4 +1,4 @@
-package org.sopt.spaghettichef.model
+package org.sopt.spaghettichef.model.db.todo
 
 import android.content.Context
 import androidx.room.Database

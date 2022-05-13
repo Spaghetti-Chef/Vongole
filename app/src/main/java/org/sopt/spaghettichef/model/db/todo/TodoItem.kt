@@ -1,4 +1,4 @@
-package org.sopt.spaghettichef.model
+package org.sopt.spaghettichef.model.db.todo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

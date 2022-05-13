@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.spaghettichef.databinding.ItemTodoBinding
-import org.sopt.spaghettichef.model.TodoItem
+import org.sopt.spaghettichef.model.db.todo.TodoItem
 import org.sopt.spaghettichef.util.ItemTouchHelperListener
 
 class TodoListAdapter(private val touchListener: (TodoItem, Int) -> Unit) :

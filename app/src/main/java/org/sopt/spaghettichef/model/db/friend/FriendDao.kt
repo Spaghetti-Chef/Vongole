@@ -1,0 +1,22 @@
+package org.sopt.spaghettichef.model.db.friend
+
+import androidx.lifecycle.LiveData
+import androidx.room.*
+
+@Dao
+interface FriendDao {
+    @Insert
+    suspend fun insertFriend(friend: FriendInfo) : Long
+
+    @Update
+    suspend fun updateFriend(friend: FriendInfo)
+
+    @Delete
+    suspend fun deleteFriend(friend: FriendInfo)
+
+    @Query("DELETE FROM friend_data_table")
+    suspend fun deleteAllFriends()
+
+    @Query("SELECT * FROM friend_data_table ORDER BY id DESC")
+    fun getAllFriends(): LiveData<List<FriendInfo>>
+}
