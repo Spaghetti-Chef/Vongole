@@ -46,6 +46,7 @@ class FriendPresenter(
             db!!.friendDAO().insertFriend(item)
         }
         view.clearInput()
+        view.clearSelectedFriend()
     }
 
     override fun deleteFriend(friend: FriendInfo) {
@@ -53,12 +54,14 @@ class FriendPresenter(
             db!!.friendDAO().deleteFriend(friend)
         }
         view.clearInput()
+        view.clearSelectedFriend()
     }
 
     override fun deleteAllFriends() {
         lifecycleScope.launch(Dispatchers.IO) {
             db!!.friendDAO().deleteAllFriends()
         }
+        view.clearSelectedFriend()
     }
 
     override fun updateFriend(name: String, email: String, id: Int) {
