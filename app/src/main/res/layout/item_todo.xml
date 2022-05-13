@@ -6,7 +6,7 @@
 
         <variable
             name="todoData"
-            type="org.sopt.spaghettichef.model.TodoItem" />
+            type="org.sopt.spaghettichef.model.db.todo.TodoItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

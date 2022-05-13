@@ -7,7 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import org.sopt.spaghettichef.adapter.TodoListAdapter
 import org.sopt.spaghettichef.databinding.ActivityMainBinding
-import org.sopt.spaghettichef.model.TodoItem
+import org.sopt.spaghettichef.model.db.todo.TodoItem
 import org.sopt.spaghettichef.presenter.TodoContract
 import org.sopt.spaghettichef.presenter.TodoPresenter
 import org.sopt.spaghettichef.util.ItemTouchHelperCallback

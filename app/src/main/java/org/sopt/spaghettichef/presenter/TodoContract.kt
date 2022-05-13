@@ -1,7 +1,7 @@
 package org.sopt.spaghettichef.presenter
 
 import android.content.Context
-import org.sopt.spaghettichef.model.TodoItem
+import org.sopt.spaghettichef.model.db.todo.TodoItem
 
 interface TodoContract {
     interface View {

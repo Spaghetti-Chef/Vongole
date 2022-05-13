@@ -27,6 +27,6 @@ class ItemTouchHelperCallback(private val listener: ItemTouchHelperListener) :
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        listener.onItemSwipe(viewHolder.adapterPosition)
+        listener.onItemSwipe(viewHolder.adapterPosition) //absoluteAdapterPosition
     }
 }
